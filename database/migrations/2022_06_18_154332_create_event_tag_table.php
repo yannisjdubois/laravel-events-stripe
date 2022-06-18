@@ -1,5 +1,7 @@
 <?php
 
+use App\Event;
+use App\Tag;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,8 +16,8 @@ class CreateEventTagTable extends Migration
     public function up()
     {
         Schema::create('event_tag', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->foreignIdFor(Event::class);
+            $table->foreignIdFor(Tag::class);
         });
     }
 
