@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -21,6 +22,10 @@ class CreateEventsTable extends Migration
             $table->boolean('premium');
             $table->timestamp('starts_at');
             $table->timestamp('ends_at');
+
+            $table->foreignIdFor(User::class);
+
+
             $table->timestamps();
         });
     }
