@@ -15,6 +15,12 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('slug');
+            $table->text('content');
+            $table->boolean('premium');
+            $table->timestamp('starts_at');
+            $table->timestamp('ends_at');
             $table->timestamps();
         });
     }
